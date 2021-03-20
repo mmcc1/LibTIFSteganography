@@ -21,7 +21,7 @@ namespace TIFTest
             bm2.Save("test.tif", ImageFormat.Tiff);
 
             byte[] b3 = tif.Decode(bm2, randomMessage.Length);
-
+            
             if (b3.SequenceEqual(randomMessage));
                 Console.WriteLine("Encoded information recovered from image");
 

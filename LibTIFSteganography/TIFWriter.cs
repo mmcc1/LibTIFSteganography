@@ -4,7 +4,7 @@ using System.Drawing;
 namespace LibTIFSteganography
 {
     /*
-     * TIF
+     * TIFWriter
      * 
      * Encodes/Decodes data into TIF images using the Alpha channel.  
      */
@@ -14,7 +14,7 @@ namespace LibTIFSteganography
         public Bitmap Encode(Bitmap sourceTIFImage, byte[] data)
         {
             if (data.Length > sourceTIFImage.Width * sourceTIFImage.Height)
-                throw new Exception("Image to small.");
+                throw new Exception("Image too small.");
 
             Bitmap encodedTIFImage = new Bitmap(sourceTIFImage);
             int index = 0;
@@ -40,7 +40,7 @@ namespace LibTIFSteganography
         public byte[] Decode(Bitmap encodedTIFImage, int size)
         {
             if (size > encodedTIFImage.Width * encodedTIFImage.Height)
-                throw new Exception("Image to small.");
+                throw new Exception("Image too small.");
 
             byte[] result = new byte[size];
             int index = 0;
